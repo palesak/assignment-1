@@ -17,6 +17,10 @@ class AccessArrayApp {
         // line to store each array item as one string
         String line;
         String[][] listArray = new String[5000][2];
+
+        // checker to store the name qand surname if its there
+        String isThere="";
+        Boolean checked;
         int i = 0;
         while ((line = buff.readLine()) != null)
         {
@@ -33,15 +37,31 @@ class AccessArrayApp {
             if (stringCompare(studentID, firstWord)) {
 
                 // print full name if found
-                System.out.println(wordChecker[1] + " " + wordChecker[2]);
+                isThere = wordChecker[1] + " " + wordChecker[2];
+                checked = true;
+                break;
+                //System.out.println(isThere);
             }
             else
             {
-                System.out.println("Access denied");
+                checked = false;
+                isThere = "Access Denied";
+                //System.out.println("Access denied");
             }
 
             i++;
         }
+        System.out.println(isThere);
+
+        /*if (checked = true)
+        {
+            System.out.println(isThere);
+        }
+        else if (checked = false)
+        {
+            //System.out.println(isThere);
+            System.out.println("Access denied");
+        }*/
         System.exit(0);
         read.close();
     }
